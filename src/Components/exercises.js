@@ -1,8 +1,12 @@
-import react from 'react';
+import React from 'react';
+import useFetchData from '../Apis/Exercises';
 
 const Exercises = () => {
-   render (
-      
+
+   const { data } = useFetchData();
+
+   return (
+      <p>Exercises</p>
    );
 }
 
