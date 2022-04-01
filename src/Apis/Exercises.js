@@ -6,15 +6,10 @@ const useFetchData = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    console.log('useEffect');
     const fetchData = async () => {
-      console.log('fetchdata');
       try {
-        console.log('try');
         const { data: response } = await axios.get('http://localhost:8000/exercises');
-        console.log('response', response);
         setData(response);
-        console.log('data', data);
       } catch (error) {
         console.error(error)
       }
