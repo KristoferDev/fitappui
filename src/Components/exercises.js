@@ -24,10 +24,10 @@ const Exercises = () => {
     //console.log('postData(formData);', await postData(formData));
     const response = await postData(formData);
     console.log('GET response', response);
-    setExercises({
+    setExercises([
       ...exercises,
       response
-    });
+    ]);
     console.log('exercises', exercises);
   };
 /*
@@ -43,17 +43,17 @@ const Exercises = () => {
   }
 
   return (
-    <div>
+    <div className='exercises'>
       {loading && <div>Loading</div>}
       {!loading && (
-        <div>
+        <div className='exercises-wrapper'>
           <h2>Doing stuff with data</h2>
-          <form>
+          <form className='exercises-form'>
             <input type="name" name="name" onChange={handleChange} />
             <input type="description" name="description" onChange={handleChange} />
             <button onClick={handleSubmit}>Add</button>
           </form>
-          <ul>
+          <ul className='exercises-list'>
             {exercises.map((item) => (
               <li key={item.id} id={item.id}><span>{item.name}</span><button type="button" onClick={() => {deleteItem(item.id)}}>Delete</button></li>
             ))}

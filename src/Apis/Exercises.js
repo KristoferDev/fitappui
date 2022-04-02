@@ -26,7 +26,11 @@ export const useFetchData = () => {
 };
 
 export const postData = async (exercise) => {
-  await axios.post('http://localhost:8000/exercises', exercise)
+  const res = await axios.post('http://localhost:8000/exercises', exercise);
+  console.log('res', res);
+  return res.data;
+  /*
+  .then(response => response.json())
   .then((response) => {
     console.log('response in api', response)
     return {
@@ -36,6 +40,7 @@ export const postData = async (exercise) => {
     }
   })
   .catch(error => { console.error(error); return Promise.reject(error); });
+  */
 }
 
 export const deleteData = async (id) => {
