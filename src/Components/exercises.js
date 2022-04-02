@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import {useFetchData, postData, deleteData} from '../Apis/Exercises';
+import { useFetchData, postData, deleteData } from '../Apis/Exercises';
+import './Exercises.scss';
 
 const Exercises = () => {
   const [formData, setFormData] = useState();
   const [exercises, setExercises] = useState([]);
   const { data, loading } = useFetchData();
-  //const [input, setInput] = useState([]);
 
   useEffect(() => {
     setExercises(data);
@@ -19,27 +19,17 @@ const Exercises = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    console.log(formData);
-    //console.log('postData(formData);', await postData(formData));
+    e.preventDefault();
     const response = await postData(formData);
-    console.log('GET response', response);
     setExercises([
       ...exercises,
       response
     ]);
-    console.log('exercises', exercises);
   };
-/*
-  const addItem = () => {
-    const response = postData(input);
-    response.then(value => setExercises(prevState => [...prevState, {value}]));
-    setInput('');
-  };
-*/
+
   const deleteItem = (id) => {
     const response = deleteData(id);
-    console.log('response', response);
+    setExercises(exercises.filter(item => item.id !== id));
   }
 
   return (
@@ -55,7 +45,7 @@ const Exercises = () => {
           </form>
           <ul className='exercises-list'>
             {exercises.map((item) => (
-              <li key={item.id} id={item.id}><span>{item.name}</span><button type="button" onClick={() => {deleteItem(item.id)}}>Delete</button></li>
+              <li key={item.id} id={item.id}><span>{item.name}</span><button type="button" onClick={() => { deleteItem(item.id) }}>Delete</button></li>
             ))}
           </ul>
         </div>

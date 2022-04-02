@@ -1,4 +1,4 @@
-import { useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export const useFetchData = () => {
@@ -15,7 +15,6 @@ export const useFetchData = () => {
       }
       setLoading(false);
     };
-
     fetchData();
   }, []);
 
@@ -25,25 +24,22 @@ export const useFetchData = () => {
   };
 };
 
+export const getOneData = async () => {
+  const res = await axios.get('http://localhost:8000/exercises');
+  return res.data;
+}
+
+export const updateOneData = async (exercise) => {
+  const res = await axios.post('http://localhost:8000/exercises', exercise);
+  return res.data;
+}
+
 export const postData = async (exercise) => {
   const res = await axios.post('http://localhost:8000/exercises', exercise);
-  console.log('res', res);
   return res.data;
-  /*
-  .then(response => response.json())
-  .then((response) => {
-    console.log('response in api', response)
-    return {
-      name: response.data.name,
-      description: response.data.description,
-      id: response.data.id
-    }
-  })
-  .catch(error => { console.error(error); return Promise.reject(error); });
-  */
 }
 
 export const deleteData = async (id) => {
-  const response = await axios.delete(`http://localhost:8000/exercises/${id}`);
-  return response.data;
+  const res = await axios.delete(`http://localhost:8000/exercises/${id}`);
+  return res.data;
 }
