@@ -34,14 +34,14 @@ const Exercises = () => {
 
   return (
     <div className='exercises'>
-      {loading && <div>Loading</div>}
+      {loading && <div>Loading Exercises</div>}
       {!loading && (
         <div className='exercises-wrapper'>
-          <h2>Doing stuff with data</h2>
+          <h2>Handle Exercises</h2>
           <form className='exercises-form'>
-            <input type="name" name="name" onChange={handleChange} />
-            <input type="description" name="description" onChange={handleChange} />
-            <button onClick={handleSubmit}>Add</button>
+            <input placeholder="Name" type="text" name="name" onChange={handleChange} />
+            <input placeholder="Description" type="message" name="description" onChange={handleChange} />
+            <button type="submit" onClick={handleSubmit}>Save exercise</button>
           </form>
           <ul className='exercises-list'>
             {exercises.map((item) => (

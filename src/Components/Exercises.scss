@@ -1,28 +1,103 @@
 .exercises {
-
   .exercises-wrapper {
     background-color: gray;
     width: calc(50vw - 2rem);
     margin: 0 auto;
-    height: calc(50vh - 2rem);
+    height: auto;
     padding: 1rem;
+    border-radius: 1rem;
+    max-height: 70vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
+    /*
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: gray;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: purple;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: pink;
+    }
+*/
     .exercises-form {
       input {
-        border-radius: 10px;
-        width: calc(100% - 4px);
-        padding: 0;
+        width: calc(100% - 14px);
+        border-radius: 2rem;
+        border: 1px solid black;
+        padding: 5px 7px;
+        margin-bottom: .5rem;
+        cursor: pointer;
+        
+        &:focus-visible {
+          width: calc(100% - 16px);
+          padding: 4px 7px;
+          outline: none;
+          border: 2px solid green;
+        }
       }
 
       button {
-        border-radius: 10px;
-        width: 100%;
+        border-radius: 2rem;
+        padding: 5px 22px;
+        border: 1px solid #fff;
+        cursor: pointer;
+        background-color: gray;
+        color: #fff;
+
+        -webkit-transition: border-color 300ms linear, color 300ms linear;
+        -moz-transition: border-color 300ms linear, color 300ms linear;
+        -o-transition: border-color 300ms linear, color 300ms linear;
+        -ms-transition: border-color 300ms linear, color 300ms linear;
+        transition: border-color 300ms linear, color 300ms linear;
+
+        &:hover {
+          border-color: #000;
+          color: #000;
+        }
 
       }
     }
 
-    .exercises-list {
-      border-radius: 10px;
+    ul.exercises-list {
+      padding: 0;
+      list-style-type: none;
+
+      li {
+        padding: .5rem 0;
+        padding-left: .5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #fff;
+  
+        button {
+          border-radius: 2rem;
+          padding: 5px 22px;
+          border: 1px solid #fff;
+          cursor: pointer;
+          background-color: gray;
+          color: #fff;
+
+          -webkit-transition: border-color 400ms linear, color 400ms linear;
+          -moz-transition: border-color 400ms linear, color 400ms linear;
+          -o-transition: border-color 400ms linear, color 400ms linear;
+          -ms-transition: border-color 400ms linear, color 400ms linear;
+          transition: border-color 400ms linear, color 400ms linear;
+
+          &:hover {
+            border-color: #000;
+            color: #000;
+          }
+        }
+      }
     }
   }
 }
