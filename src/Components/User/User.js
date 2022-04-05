@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useFetchData, postData, deleteData } from '../Apis/Exercises';
-import './Exercises.scss';
+import { useFetchData, postData, deleteData } from '../../Apis/User';
+import './User.scss';
 
-const Exercises = () => {
+const Users = () => {
   const [formData, setFormData] = useState();
   const [exercises, setExercises] = useState([]);
+  const [val, setVal] = useState();
   const { data, loading } = useFetchData();
 
   useEffect(() => {
@@ -25,6 +26,7 @@ const Exercises = () => {
       ...exercises,
       response
     ]);
+    setVal(() => "");
   };
 
   const deleteItem = (id) => {
@@ -37,11 +39,17 @@ const Exercises = () => {
       {loading && <div>Loading Exercises</div>}
       {!loading && (
         <div className='exercises-wrapper'>
-          <h2>Handle Exercises</h2>
+          <h2>Handle User</h2>
           <form className='exercises-form'>
-            <input placeholder="Name" type="text" name="name" onChange={handleChange} />
-            <input placeholder="Description" type="message" name="description" onChange={handleChange} />
-            <button type="submit" onClick={handleSubmit}>Save exercise</button>
+            <input value={val} placeholder="Firstname" type="text" name="firstname" onChange={handleChange} />
+            <input value={val} placeholder="Lastname" type="text" name="lastname" onChange={handleChange} />
+            <select placeholder="Gender" name="gender" onChange={handleChange}>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+            <br />
+            <button type="submit" onClick={handleSubmit}>Save user</button>
           </form>
           <ul className='exercises-list'>
             {exercises.map((item) => (
@@ -54,4 +62,4 @@ const Exercises = () => {
   )
 }
 
-export default Exercises;
+export default Users;

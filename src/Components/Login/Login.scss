@@ -1,0 +1,67 @@
+.login {
+
+  .login-wrapper {
+    background-color: #fff;
+    border: 2px solid pink;
+    color: pink;
+    width: calc(70vw - 2rem);
+    margin: 0 auto;
+    height: auto;
+    border-radius: 1rem;
+    padding: 1rem;
+    max-width: 450px;
+
+    .register-form {
+      margin: 0 auto;
+
+      textarea,
+      input {
+        border: 1px solid pink;
+        border-radius: 1rem;
+        padding: .45rem;
+        margin-bottom: .7rem;
+        width: calc(100% - 1rem);
+      }
+
+      button {
+        background-color: pink;
+        color: #fff;
+        border: 1px solid pink;
+        padding: 7px 15px;
+        border-radius: 1rem;
+        cursor: pointer;
+
+        -webkit-transition: border-color 300ms linear, color 300ms linear;
+        -moz-transition: border-color 300ms linear, color 300ms linear;
+        -o-transition: border-color 300ms linear, color 300ms linear;
+        -ms-transition: border-color 300ms linear, color 300ms linear;
+        transition: border-color 300ms linear, color 300ms linear;
+
+        &:hover {
+          background-color: #fff;
+          color: pink;
+          font-weight: bold;
+        }
+      }
+
+      .message {
+        width: 100%;
+        border-radius: 1rem;
+        text-align: center;
+        padding: .5rem;
+        padding-bottom: .7rem;
+        margin: 0.5rem 0;
+      }
+
+      .success-message {
+        background-color: green;
+        color: white;
+      }
+
+      .error-message {
+        background-color: red;
+        color: white;
+      }
+    }
+  }
+}

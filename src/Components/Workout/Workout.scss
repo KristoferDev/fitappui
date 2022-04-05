@@ -1,0 +1,109 @@
+.workout {
+  .workout-wrapper {
+    background-color: #fff;
+    border: 2px solid pink;
+    color: pink;
+    width: calc(70vw - 2rem);
+    margin: 0 auto;
+    height: auto;
+    border-radius: 1rem;
+    padding: 1rem;
+    max-width: 450px;
+
+    .workout-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        background-color: pink;
+        color: #fff;
+        border: 1px solid pink;
+        padding: 7px 15px;
+        border-radius: 1rem;
+        cursor: pointer;
+
+        -webkit-transition: border-color 400ms linear, color 400ms linear;
+        -moz-transition: border-color 400ms linear, color 400ms linear;
+        -o-transition: border-color 400ms linear, color 400ms linear;
+        -ms-transition: border-color 400ms linear, color 400ms linear;
+        transition: border-color 400ms linear, color 400ms linear;
+
+        &:hover {
+          background-color: #fff;
+          color: pink;
+          font-weight: bold;
+        }
+      }
+    }
+
+    form {
+      margin: 0 auto;
+
+      textarea,
+      input {
+        border: 1px solid pink;
+        border-radius: 1rem;
+        padding: .45rem;
+        margin-bottom: .7rem;
+        width: calc(100% - 1rem);
+      }
+
+      button {
+        background-color: pink;
+        color: #fff;
+        border: 1px solid pink;
+        padding: 7px 15px;
+        border-radius: 1rem;
+        cursor: pointer;
+
+        -webkit-transition: border-color 400ms linear, color 400ms linear;
+        -moz-transition: border-color 400ms linear, color 400ms linear;
+        -o-transition: border-color 400ms linear, color 400ms linear;
+        -ms-transition: border-color 400ms linear, color 400ms linear;
+        transition: border-color 400ms linear, color 400ms linear;
+
+        &:hover {
+          background-color: #fff;
+          color: pink;
+          font-weight: bold;
+        }
+      }
+    }
+
+    ul.workout-list {
+      padding: 0;
+      list-style-type: none;
+
+      li {
+        padding: .5rem 0;
+        padding-left: .5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid pink;
+
+        button {
+          background-color: pink;
+          color: #fff;
+          border: 1px solid pink;
+          padding: 7px 15px;
+          border-radius: 1rem;
+          cursor: pointer;
+
+          -webkit-transition: border-color 400ms linear, color 400ms linear;
+          -moz-transition: border-color 400ms linear, color 400ms linear;
+          -o-transition: border-color 400ms linear, color 400ms linear;
+          -ms-transition: border-color 400ms linear, color 400ms linear;
+          transition: border-color 400ms linear, color 400ms linear;
+
+          &:hover {
+            background-color: #fff;
+            color: pink;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,15 +1,12 @@
-import './App.css';
-import Exercises from './Components/Exercises';
-import Users from './Components/User';
-import Workouts from './Components/Workout';
+import './App.scss';
+import Routing from './Routing';
+import Nav from './Components/Nav/Nav';
 
 function App() {
   return (
-    <div className="App">
-      <h1>App.js</h1>
-      <Exercises />
-      <Users />
-      <Workouts />
+    <div>
+      <Nav />
+      <Routing />
     </div>
   );
 }

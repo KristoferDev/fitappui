@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useFetchData, postData, deleteData } from '../Apis/User';
-import './User.scss';
+import { useFetchData, postData, deleteData } from '../../Apis/Exercises';
+import './Exercises.scss';
 
-const Users = () => {
+const Exercises = () => {
   const [formData, setFormData] = useState();
   const [exercises, setExercises] = useState([]);
+  const [val, setVal] = useState({
+    name: '',
+    description: ''
+  });
   const { data, loading } = useFetchData();
 
   useEffect(() => {
@@ -25,6 +29,7 @@ const Users = () => {
       ...exercises,
       response
     ]);
+    setVal(() => "");
   };
 
   const deleteItem = (id) => {
@@ -37,10 +42,10 @@ const Users = () => {
       {loading && <div>Loading Exercises</div>}
       {!loading && (
         <div className='exercises-wrapper'>
-          <h2>Handle User</h2>
+          <h2>Handle Exercises</h2>
           <form className='exercises-form'>
-            <input placeholder="Name" type="text" name="name" onChange={handleChange} />
-            <input placeholder="Description" type="message" name="description" onChange={handleChange} />
+            <input value={val.name} placeholder="Name" type="text" name="name" onChange={handleNameChange} />
+            <textarea value={val.description} placeholder="Description" type="message" name="description" onChange={handleDescriptionChange} />
             <button type="submit" onClick={handleSubmit}>Save exercise</button>
           </form>
           <ul className='exercises-list'>
@@ -54,4 +59,4 @@ const Users = () => {
   )
 }
 
-export default Users;
+export default Exercises;
