@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export const useFetchData = () => {
+export const useGetExercise = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -24,22 +24,22 @@ export const useFetchData = () => {
   };
 };
 
-export const getOneData = async () => {
+export const getOneExercise = async () => {
   const res = await axios.get('http://localhost:8000/exercises');
   return res.data;
 }
 
-export const updateOneData = async (exercise) => {
+export const updateOneExercise = async (exercise) => {
   const res = await axios.post('http://localhost:8000/exercises', exercise);
   return res.data;
 }
 
-export const postData = async (exercise) => {
+export const postExercise = async (exercise) => {
   const res = await axios.post('http://localhost:8000/exercises', exercise);
   return res.data;
 }
 
-export const deleteData = async (id) => {
+export const deleteExercise = async (id) => {
   const res = await axios.delete(`http://localhost:8000/exercises/${id}`);
   return res.data;
 }

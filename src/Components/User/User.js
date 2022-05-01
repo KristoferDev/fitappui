@@ -35,12 +35,12 @@ const Users = () => {
   }
 
   return (
-    <div className='exercises'>
+    <div className='user'>
       {loading && <div>Loading Exercises</div>}
       {!loading && (
-        <div className='exercises-wrapper'>
+        <div className='user-wrapper'>
           <h2>Handle User</h2>
-          <form className='exercises-form'>
+          <form className='user-form'>
             <input value={val} placeholder="Firstname" type="text" name="firstname" onChange={handleChange} />
             <input value={val} placeholder="Lastname" type="text" name="lastname" onChange={handleChange} />
             <select placeholder="Gender" name="gender" onChange={handleChange}>
@@ -51,7 +51,7 @@ const Users = () => {
             <br />
             <button type="submit" onClick={handleSubmit}>Save user</button>
           </form>
-          <ul className='exercises-list'>
+          <ul className='user-list'>
             {exercises.map((item) => (
               <li key={item.id} id={item.id}><span>{item.name}</span><button type="button" onClick={() => { deleteItem(item.id) }}>Delete</button></li>
             ))}
