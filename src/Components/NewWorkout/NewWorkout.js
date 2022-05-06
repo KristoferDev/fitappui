@@ -3,25 +3,25 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useGetExercise } from '../../Apis/Exercises';
 import { postData } from '../../Apis/Workout';
+import Exercise from '../Exercise/Exercise';
 import './NewWorkout.scss';
 
 const NewWorkout = () => {
   const [workout, setWorkout] = useState([{
     id: '',
-    date:  Date(),
+    date: Date(),
     set: [
-      {exercise: String},
-      [{weight: Number}, {reps: Number}]
+      { exercise: String },
+      [{ weight: Number }, { reps: Number }]
     ]
   }]);
   const [exercises, setExercises] = useState([]);
   const [exercise, setExercise] = useState([]);
-  const [addRepsFields, setAddRepsFields] = useState(['<input className="exercise-weight" placeholder="Weight" name="weight" /><input className="exercise-reps" placeholder="Reps" name="reps" />']);
   const [startDate, setStartDate] = useState(new Date());
   const { data, loading } = useGetExercise();
 
   useEffect(() => {
-      setExercises(data);
+    setExercises(data);
   }, [data]);
 
   const handleChange = (e) => {
@@ -53,13 +53,6 @@ const NewWorkout = () => {
     console.log(event.target.username.value)
   }
 
-  const addRep = () => {
-    console.log('adding rep');
-    setAddRepsFields(
-      ...addRepsFields,
-      '<input className="exercise-weight" placeholder="Weight" name="weight" /><input className="exercise-reps" placeholder="Reps" name="reps" />');
-  }
-
   return (
     <div className='workout'>
       {loading && <div>Loading workout</div>}
@@ -73,35 +66,22 @@ const NewWorkout = () => {
               <DatePicker name="date" selected={startDate} onChange={date => setStartDate(date)} />
               <select name="exercise" onChange={handleExercise}>
                 {exercises.map((item) => (
-                <option key={item.id} id={item.id}>{item.name}</option>
+                  <option key={item.id} id={item.id}>{item.name}</option>
                 ))}
               </select>
             </form>
           </div>
 
-          { exercise ?
+          {exercise ?
             <div className='workout-wrapper'>
               <div className='workout-header'>
                 {startDate ? <h2>Date is set</h2> : <h2>Choose date</h2>}
               </div>
-              <ul className="exercise-label">
-                <li>Exercise</li>
-                <li>Weight</li>
-                <li>Reps</li>
-              </ul>
-              <ul>
-                {exercise.map((item) => (
-                  <li key={item}>
-                    <span className="exercise-name">{item}</span>
-                    {addRepsFields.map((item) => {
-                      item
-                    })}
-                    <button onClick={addRep}>+</button>
-                  </li>
-                ))}
-              </ul>
+              {exercise.map((item) => (
+                <Exercise key={item} name={item} />
+              ))}
             </div>
-          : null }
+            : null}
         </>
       )}
     </div>
